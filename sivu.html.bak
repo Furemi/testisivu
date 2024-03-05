@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Bookmarks</title>
+	<link rel = "stylesheet" href = "tyyli.css" type = "text/css">
+	<link rel="shortcut icon" href="images/favicon.ico" >
+	<script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href = "https://www.youtube.com/feed/subscriptions">Youtube</a></li>
+			<li><a href = "https://www.twitch.tv/directory/following">Twitch</a></li>
+			<li><a href = "http://myanimelist.net">MyAnimeList</a></li>
+			<li><a href = "http://www.dotabuff.com/players/85288014">Dotabuff</a></li>
+			<input type="text" class="DotabuffClass" id="DotabuffName" value="">
+			<button onclick="DotabuffPage()">Гo</button>
+			<li><a href = "https://osu.ppy.sh/u/3787239">osu!</a> search</li>
+			<input type="text" class="osuClass" id="osuName" value="">
+			<button onclick="osuPage()">Гo</button>
+			<li><a href = "https://worldofwarcraft.com/en-gb/">Armory</a> search</li>
+			<input type="text" class="ArmoryClass" id="RealmName" value="Magtheridon">
+			<input type="text" class="ArmoryClass" id="CharName" value="Assasinlife">
+			<button onclick="ArmoryPage()">Гo</button>
+			<li><a href = "http://na.finalfantasyxiv.com/lodestone/character/">FFXIV</a> search</li>
+			<input type="text" class="ffxivClass" id="charName" value="Fremy Rachnera">
+			<button onclick="ffxivPage()">Гo</button>
+			<li><a href = "https://www.pixiv.net/">Pixiv</a></li>
+			<li><a href = "https://e621.net/post/index/">eXDe</a></li>
+			<script>
+				function DotabuffPage() {
+				window.location.href = 'http://www.dotabuff.com/search?utf8=%E2%9C%93&q='+document.getElementById("DotabuffName").value+'&commit=Search';
+			}
+				function osuPage() {
+				window.location.href = 'http://osu.ppy.sh/u/'+document.getElementById("osuName").value;
+			}
+				function ArmoryPage() {
+				window.location.href = 'https://worldofwarcraft.com/en-gb/character/eu/'+document.getElementById("RealmName").value+'/'+document.getElementById("CharName").value;
+			}
+				function ffxivPage() {
+				window.location.href = 'http://na.finalfantasyxiv.com/lodestone/character/?q='+document.getElementById("charName").value+'&worldname=&classjob=&race_tribe=&order=';
+			}
+			$(document).ready(function() {
+    $('.ArmoryClass').keydown(function(event) {
+        if (event.keyCode == 13) {
+            ArmoryPage();
+            return false;
+         }
+    });
+    $('.ffxivClass').keydown(function(event) {
+        if (event.keyCode == 13) {
+            ffxivPage();
+            return false;
+         }
+    });
+    $('.osuClass').keydown(function(event) {
+        if (event.keyCode == 13) {
+            osuPage();
+            return false;
+         }
+    });
+    $('.DotabuffClass').keydown(function(event) {
+        if (event.keyCode == 13) {
+            DotabuffPage();
+            return false;
+         }
+    });
+});
+
+function Ajax(file,div){
+div = '#'+div;
+console.log(div);
+	$.ajax({
+  url: div,
+  success: function(data) {
+            $(div).html(data);
+        }
+  
+});
+}
+				Ajax('Ajax/DisplaySubreddits.php','subreddits');
+
+			</script>
+		</ul>
+	</nav>
+	<nav>
+				<legend>Subreddits</legend>
+				<li><a href = "https://www.reddit.com/r/runescape">Runescape</a></li>
+				<li><a href = "https://www.reddit.com/r/2007scape">2007scape</a></li>
+				<li><a href = "https://www.reddit.com/r/warframe">Warframe</a></li>
+				<li><a href = "https://www.reddit.com/r/osugame">Osugame</a></li>
+				<li><a href = "https://www.reddit.com/r/wow">WoW</a></li>
+				<li><a href = "https://www.reddit.com/r/maplestory">Maplestory</a></li>
+				<li><a href = "https://www.reddit.com/r/ffxiv">FFXIV</a></li>
+				<li><a href = "https://www.reddit.com/r/touhou">Touhou</a></li>
+				<li><a href = "https://www.reddit.com/r/programmerhumor">Programmerhumor</a></li>
+				<li><a href = "https://www.reddit.com/r/programminghorror">Programminghorror</a></li>
+	</nav>
+	<div align ="center">
+	<nav class="navdown">
+				<legend>Cluestuff</legend>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Anagrams">Anagrams</a></h1>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Celtic_knots">Celtic knots</a></h1>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Challenge_scrolls">Challenge scrolls</a></h1>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Compass">Compass</a></h1>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Coordinates">Coordinates</a></h1>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Cryptics">Cryptics</a></h1>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Emotes">Emotes</a></h1>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Maps">Maps</a></h1>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Puzzle_boxes">Puzzle boxes</a></h1>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Scans">Scans</a></h1>
+					<h1><a href="http://runescape.wikia.com/wiki/Treasure_Trails/Guide/Simple_clues">Simples</a></h1>
+		</nav>		
+</div>
+</body>
+</html>	
